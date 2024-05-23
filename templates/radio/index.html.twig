@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            {% for radio in radio_lists %}
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">{{ radio.name }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Category: {{ radio.category }}</h5>
+                            <p class="card-text">Description: {{ radio.description }}</p>
+                            <p class="card-text">Last Date Playing: {{ radio.lastDatePlaying }}</p>
+                            <a href="{{ radio.audioUrl }}" class="btn btn-primary">Listen</a>
+                            <a href="{{ radio.urlWebSite }}" class="btn btn-secondary">Website</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+{% endblock %}
